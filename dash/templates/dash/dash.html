@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block head %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endblock %}
+{% block body %}
+
+{% block content %}
+<div class="title"><h1>Plotlyのグラフを描画</h1></div>
+<div class="graph">{{dash|safe}}</div>
+{% endblock %}
+{% endblock body %}

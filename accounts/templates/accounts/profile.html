@@ -1,0 +1,154 @@
+{% extends 'app/base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block body %}
+
+
+<header>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href=" {% url 'index' %} "><img src=" {% static 'img/logo (13).png' %} "   alt="Skeleton Art Museumロゴ"></a>
+                    <a class="navbar-brand" >
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'EC' %}">予約・購入</a></li>
+                            <li><a href="{% url 'blog' %}">ご意見・感想</a></li>
+                            <li><a href="{% url 'toiawase' %}">お問い合わせ</a></li>
+                            {% if user.is_authenticated %}
+                            <li class="active"><a href="{% url 'profile' %}">マイページ</a></li>
+                            <li><a href="{% url 'account_logout' %}">ログアウト</a></li>
+                            {% else %}
+                            <li><a href="{% url 'account_signup' %}">サインイン</a></li>
+                            <li><a href="{% url 'account_login' %}">ログイン</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--/.nav-ends -->
+<section id="top_banner">
+    <div class="page_info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-6">
+                    <h3>プロフィール</h3>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-6" style="text-align:right;">Home<span class="sep"> 	/ </span><span class="current"> プロフィール</span></div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</section>
+
+
+    <section id="login-reg">
+        <div class="container">
+            <!-- Top content -->
+            <div class="row">
+                <div class="col-md-6 col-sm-12 forms-right-icons">
+                    <div class="section-heading">
+                        <h2><span>profile </span></h2>
+                        <p class="subheading">
+                            profile to site.
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 icon"><i class="fa fa-laptop"></i></div>
+                        <div class="col-xs-10 datablock">
+                            <h4>オンライン予約・販売</h4>
+                            <p>骨格美術館net storeでは、オンラインでチケットや骨格美術館storeで販売しているグッズを購入できます。
+                            
+                            </p>
+                            <a href="#" class="readmore">詳細へ進む <i class="fa fa-caret-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 icon"><i class="fa fa-envelope"></i></div>
+                        <div class="col-xs-10 datablock">
+                            <h4>お知らせ</h4>
+                            <p>年間スケジュール詳細やコロナウイルス情報、休館日などのお知らせは当webサイトにて記載しております。
+                            ご来館前にぜひご覧ください。
+                            </p>
+                            <a href="#" class="readmore">詳細へ進む <i class="fa fa-caret-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 icon"><i class="fa fa-bullhorn"></i></div>
+                        <div class="col-xs-10 datablock">
+                            <h4>お問い合わせ</h4>
+                        <p>お電話のお問い合わせだけでなく、メールフォームからのお問い合わせも受け付けております。
+                        ご不明な点等ありましたらぜひご活用ください。
+                        </p>
+                            <a href="#" class="readmore">詳細へ進む <i class="fa fa-caret-right"></i></a>
+                        </div>
+                    </div>
+                   
+                </div>
+                <!--forms-right-icons-->
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-box">
+                        <div class="form-top">
+                            <div class="form-top-left">
+                                <h3>profile</h3>
+                                <p>プロフィールになります。ご確認ください。</p>
+                            </div>
+                            <div class="form-top-right">
+                                <i class="fa fa-pencil"></i>
+                            </div>
+                        </div>
+                        <div class="form-bottom">
+                            <form role="form" action="" class="login-form">
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i>姓 
+                                    </span>
+                                    <input type="text" class="form-control" placeholder=" {{ user_date.first_name }}" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i> 名前</span>
+                                    <input type="text" class="form-control" placeholder=" {{ user_date.last_name }}" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope"></i> メール</span>
+                                    <input type="text" class="form-control" placeholder="{{ user_date.email }}" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-phone"></i> 電話番号</span>
+                                    <input type="tel" class="form-control" placeholder="{{ user_date.department }}" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-support"></i> 住所</span>
+                                    <input type="tel" class="form-control" placeholder="{{ user_date.address }}" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i ></i> 【入会日】</span>
+                                    <input type="tel" class="form-control" placeholder="{{ user_date.created }}" aria-describedby="basic-addon1">
+                                </div>
+                                <a href="{% url 'profile_edit' %}"
+                                <button  type="submit" class="btn">編集する</button></a>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+
+    </section>
+
+{% endblock %}
+
+
+

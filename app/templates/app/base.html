@@ -1,0 +1,541 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/skin.css" %}">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{% static "js/index.js" %}"
+    ></script>
+</head>
+
+<body id="wrapper">
+    
+    
+    
+    <section id="top-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-sm-7 col-xs-7 top-header-links">
+                    <ul class="contact_links">
+                        <li><i class="fa fa-phone"></i><a href="#">+0120-87-115</a></li>
+                        <li><i class="fa fa-envelope"></i><a href="#">about@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-5 col-sm-5 col-xs-5 social">
+                    <ul class="social_links">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+
+{% block body %}
+
+<header>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href=" {% url 'index' %} "><img src=" {% static 'img/logo (13).png' %} "   alt="Skeleton Art Museumロゴ"></a>
+                    <a class="navbar-brand" >
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'EC' %}">予約・購入</a></li>
+
+                            <li><a href="{% url 'blog' %}">ご意見・感想</a></li>
+                            <li><a href="{% url 'toiawase' %}">お問い合わせ</a></li>
+                            {% if user.is_authenticated %}
+                            <li><a href="{% url 'profile' %}">マイページ</a></li>
+                            <li><a href="{% url 'account_logout' %}">ログアウト</a></li>
+                            {% else %}
+                            <li><a href="{% url 'account_signup' %}">サインイン</a></li>
+                            <li><a href="{% url 'account_login' %}">ログイン</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--/.nav-ends -->
+    
+    <div id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill" style="background-image:url('static/img/main_img_01.jpg');"></div>
+                <div class="carousel-caption slide-up">
+                    <h1 class="banner_heading">Skeleton  Art Museum</h1>
+                    <p class="banner_txt">全てを支え全てを記憶する。<br>
+                        骨が語る美しさ、神秘的な空間をここに。</p>
+                    <div class="slider_btn">
+                        <button type="button" class="btn btn-default slide">予約・購入<i class="fa fa-caret-right"></i></button>
+                        <button type="button" class="btn btn-primary slide">年間スケジュール<i class="fa fa-caret-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="fill" style="background-image:url('static/img/media/main_img_02.jpg');"></div>
+                <div class="carousel-caption slide-up">
+                    <h1 class="banner_heading">【1/20～2/25】開催中！<br>
+                        <span> 恐竜骨格展</span></h1>
+                    <p class="banner_txt">世界中から集まる日本最大級の恐竜の骨格展。
+                        <br>最近出土の大型イクチオサウルの全身骨格も展示！
+                    </p>
+                    <div class="slider_btn">
+                        <button type="button" class="btn btn-default slide">予約・購入<i class="fa fa-caret-right"></i></button>
+                        <button type="button" class="btn btn-primary slide">年間スケジュール<i class="fa fa-caret-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="fill" style="background-image:url('static/img/media/main_img_03.jpg');"></div>
+                <div class="carousel-caption slide-up">
+                    <h1 class="banner_heading">【2/29～4/15】開催予定！<br>
+                        <span>海洋生物展</span></h1>
+                    <p class="banner_txt">クジラやイルカをはじめ、魚類や棘皮動物の骨格も展示！<br>太古の肉食クジラ、リヴァイアサン・メルビレイの頭部骨格も展示予定！</p>
+                    <div class="slider_btn">
+                        <button type="button" class="btn btn-default slide">予約・購入 <i class="fa fa-caret-right"></i></button>
+                        <button type="button" class="btn btn-primary slide">年間スケジュール<i class="fa fa-caret-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"> <i class="fa fa-angle-left" aria-hidden="true"></i>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"> <i class="fa fa-angle-right" aria-hidden="true"></i>
+            <span class="sr-only">Next</span>
+        </a>
+
+    </div>
+
+    <section id="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-xs-12 block">
+                    <div class="col-md-2 col-xs-2"><i class="fa fa-laptop feature_icon"></i></div>
+                    <div class="col-md-10 col-xs-10">
+                        <h4>オンライン予約・販売</h4>
+                        <p>骨格美術館net storeでは、オンラインでチケットや骨格美術館storeで販売しているグッズを購入できます。
+                            
+                        </p>
+                        <a href="#" class="readmore">詳細へ進む <i class="fa fa-caret-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12 block">
+                    <div class="col-md-2 col-xs-2"><i class="fa fa-bullhorn feature_icon"></i></div>
+                    <div class="col-md-10 col-xs-10">
+                        <h4>お知らせ</h4>
+                        <p>年間スケジュール詳細やコロナウイルス情報、休館日などのお知らせは当webサイトにて記載しております。
+                        ご来館前にぜひご覧ください。
+                        </p>
+                        <a href="#" class="readmore">詳細へ進む <i class="fa fa-caret-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12 block">
+                    <div class="col-md-2 col-xs-2"><i class="fa fa-envelope feature_icon"></i></div>
+                    <div class="col-md-10 col-xs-10">
+                        <h4>お問い合わせ</h4>
+                        <p>お電話のお問い合わせだけでなく、メールフォームからのお問い合わせも受け付けております。
+                        ご不明な点等ありましたらぜひご活用ください。
+                        </p>
+                        <a href="#" class="readmore">詳細へ進む <i class="fa fa-caret-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="section-heading text-center">
+                    <div class="col-md-12 col-xs-12">
+                        <h1>skeleton art<span>topics</span></h1>
+                        <p class="subheading">こちらでは、骨格美術館に勤務する学芸員・博士や、連携機関の研究員などによるコラムを載せています。
+                        <br>骨格美術館の情報や最新の骨格研究も載せているため、ぜひご覧ください。</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+          
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
+                    <div class="portfolio-one">
+                        <div class="portfolio-head">
+                            <div class="portfolio-img"><img alt="" src="{% static "img/s08.jpg" %}"></div>
+                            <div class="portfolio-hover">
+                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
+                                <a class="portfolio-zoom prettyPhoto" href="#"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <!-- End portfolio-head -->
+                        <div class="portfolio-content">
+                            <h5 class="title">骨格標本グッズ作成中！</h5>
+                            <p>こんにちわ、学芸員の高峰です！現在骨格美術館では新たな骨格グッズとして魚類の...</p>
+                            <a href="#" class="readmore">詳細へ進む <i class="fa fa-caret-right"></i></a>
+                        </div>
+                        <!-- End portfolio-content -->
+                    </div>
+                    <!-- End portfolio-item -->
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
+                    <div class="portfolio-one">
+                        <div class="portfolio-head">
+                            <div class="portfolio-img"><img alt="" src="{% static "img/s02.jfif" %}"></div>
+                            <div class="portfolio-hover">
+                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
+                                <a class="portfolio-zoom prettyPhoto" href="#"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <!-- End portfolio-head -->
+                        <div class="portfolio-content">
+                            <h5 class="title">セミクジラに歯はない？？</h5>
+                            <p>セミクジラというクジラをご存じでしょうか。
+                                <br>
+                            今回はセミクジラの骨格が手に入ったため、セ...
+                            </p>
+                            <a href="#" class="readmore">詳細へ進む <i class="fa fa-caret-right"></i></a>
+                        </div>
+                        <!-- End portfolio-content -->
+                    </div>
+                    <!-- End portfolio-item -->
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
+                    <div class="portfolio-one">
+                        <div class="portfolio-head">
+                            <div class="portfolio-img"><img alt="" src="{% static "img/s03.jpg" %}"></div>
+                            <div class="portfolio-hover">
+                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
+                                <a class="portfolio-zoom prettyPhoto" href="#"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <!-- End portfolio-head -->
+                        <div class="portfolio-content">
+                            <h5 class="title">永遠に伸びる牙、バビルサ</h5>
+                            <p>バビルさという猪は牙がずっと伸びます。搭載画像の通りですが、伸び続けた牙は結果的に脳に...</p>
+                            <a href="#" class="readmore">詳細へ進む <i class="fa fa-caret-right"></i></a>
+                        </div>
+                        <!-- End portfolio-content -->
+                    </div>
+                    <!-- End portfolio-item -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
+                    <div class="portfolio-one">
+                        <div class="portfolio-head">
+                            <div class="portfolio-img"><img alt="" src="{% static "img/s04.jpg" %}"></div>
+                            <div class="portfolio-hover">
+                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
+                                <a class="portfolio-zoom" href="#"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <!-- End portfolio-head -->
+                        <div class="portfolio-content">
+                            <h5 class="title">ティラノサウルスの骨格標本！</h5>
+                            <p>
+                                かなり大きいティラノサウルスの骨格標本が手に入りました！！
+                                
+                                <br>
+                            ティラノサウルスとは、白亜紀に生存していたと...</p>
+                            <a href="#" class="readmore">詳細へ進む <i class="fa fa-caret-right"></i></a>
+                        </div>
+                        <!-- End portfolio-content -->
+                    </div>
+                    <!-- End portfolio-item -->
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
+                    <div class="portfolio-one">
+                        <div class="portfolio-head">
+                            <div class="portfolio-img"><img alt="" src="{% static "img/s05.jpeg" %}"></div>
+                            <div class="portfolio-hover">
+                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
+                                <a class="portfolio-zoom prettyPhoto" href="#"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <!-- End portfolio-head -->
+                        <div class="portfolio-content">
+                            <h5 class="title">角のある動物展開催中！</h5>
+                            <p>現在角のある動物展が始まりました！この展示会ではヤギや牛など...
+                            </p>
+                            <a href="#" class="readmore">詳細へ進む <i class="fa fa-caret-right"></i></a>
+                        </div>
+                        <!-- End portfolio-content -->
+                    </div>
+                    <!-- End portfolio-item -->
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
+                    <div class="portfolio-one">
+                        <div class="portfolio-head">
+                            <div class="portfolio-img"><img alt="" src="{% static "img/s06.jpg" %}"></div>
+                            <div class="portfolio-hover">
+                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
+                                <a class="portfolio-zoom prettyPhoto" href="#"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <!-- End portfolio-head -->
+                        <div class="portfolio-content">
+                            <h5 class="title">蛇骨格展</h5>
+                            <p>先日から新たに期間限定で蛇骨格展が始まりました。この展示会では...</p>
+                            <a href="#" class="readmore">詳細へ進む <i class="fa fa-caret-right"></i></a>
+                        </div>
+                        <!-- End portfolio-content -->
+                    </div>
+                    <!-- End portfolio-item -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
+                    <div class="portfolio-one">
+                        <div class="portfolio-head">
+                            <div class="portfolio-img"><img alt="" src="{% static "img/s07.jfif" %}"></div>
+                            <div class="portfolio-hover">
+                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
+                                <a class="portfolio-zoom" href="#"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <!-- End portfolio-head -->
+                        <div class="portfolio-content">
+                            <h5 class="title">魚類の骨格について</h5>
+                            <p>魚の研究をしている白川です。今回は魚類についてのお話をしていこうと思います。みなさ...</p>
+                            <a href="#" class="readmore">詳細へ進む <i class="fa fa-caret-right"></i></a>
+                        </div>
+                        <!-- End portfolio-content -->
+                    </div>
+                    <!-- End portfolio-item -->
+                </div>
+               
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
+                    <div class="portfolio-one">
+                        <div class="portfolio-head">
+                            <div class="portfolio-img"><img alt="" src="{% static "img/s09.jpg" %}"></div>
+                            <div class="portfolio-hover">
+                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
+                                <a class="portfolio-zoom prettyPhoto" href="#"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <!-- End portfolio-head -->
+                        <div class="portfolio-content">
+                            <h5 class="title">カモノハシの不思議な骨格</h5>
+                            <p>カモノハシという動物をご存じでしょうか？この生き物は哺乳類なのにくちばしが存在するこ..</p>
+                            <a href="#" class="readmore">詳細へ進む <i class="fa fa-caret-right"></i></a>
+                        </div>
+                        <!-- End portfolio-content -->
+                    </div>
+                    <!-- End portfolio-item -->
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
+                        <div class="portfolio-one">
+                            <div class="portfolio-head">
+                                <div class="portfolio-img"><img alt="" src="{% static "img/s01.jpg" %}"></div>
+                                <div class="portfolio-hover">
+                                    <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
+                                    <a class="portfolio-zoom" href="#"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <!-- End portfolio-head -->
+                            <div class="portfolio-content">
+                                <h5 class="title">リヴァイアサンの骨格!?</h5>
+                                <p>古生代に生きたとされるクジラの王、リヴァイアサン・メルビレイ。
+                                その頭骨標本についてまとめ..
+                                </p>
+                                <a href="#" class="readmore">詳細へ進む <i class="fa fa-caret-right"></i></a>
+                            </div>
+                            <!-- End portfolio-content -->
+                        </div>
+                        <!-- End portfolio-item -->
+                    </div>
+            </div>
+            
+            
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination pagination-lg justify-content-end">
+                            <li class="page-item">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+    
+
+
+    {% endblock body %}
+
+
+
+
+
+    <section id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-12 block">
+                    <div class="footer-block">
+                        <h4>Address</h4>
+                        <hr/>
+                        <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.
+                        </p>
+                        <a href="#" class="learnmore">Learn More <i class="fa fa-caret-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-12 block">
+                    <div class="footer-block">
+                        <h4>footer menu</h4>
+                        <hr/>
+                        <ul class="footer-links">
+                            <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'blog' %}">意見・感想</a></li>
+                            <li><a href="{% url 'EC' %}">予約・購入</a></li>
+                            <li><a href="{% url 'account_login' %}">お問い合わせ</a></li>
+                            {% if user.is_authenticated %}
+                            <li><a href="{% url 'profile' %}">マイページ</a></li>
+                            <li><a href="{% url 'account_logout' %}">ログアウト</a></li>
+                            {% else %}
+                            <li><a href="{% url 'account_signup' %}">サインイン</a></li>
+                            <li><a href="{% url 'account_login' %}">ログイン</a></li>
+                            {% endif %}
+                        
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-12 block">
+                    <div class="footer-block">
+                        <h4>研究コミュニティ</h4>
+                        <hr/>
+                        <ul class="footer-links">
+                            <li><a href="#">日本生物委員会</a></li>
+                            <li><a href="#">bone International organization</a></li>
+                            <li><a href="#">株式会社 grand echo</a></li>
+                            <li><a href="#">有限会社 中田栄</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-12 <block></block>">
+                    <div class="footer-block">
+                        <h4>お知らせ</h4>
+                        <hr/>
+                        <ul class="footer-links">
+                            <li>
+                                <a href="#" class="post">コロナウイルスによる閉館について</a>
+                                <p class="post-date">August 25, 2021</p>
+                            </li>
+                            <li>
+                                <a href="#" class="post">魚類骨格盗難について</a>
+                                <p class="post-date">May 25, 2021</p>
+                            </li>
+                            <li>
+                                <a href="#" class="post">美術館スタッフ募集中！</a>
+                                <p class="post-date">October 11, 2019</p>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </section>
+
+    <section id="bottom-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12 btm-footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">aoi</a>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 copyright">
+                    information <a href="#">骨格美術館net</a> by <a href="#">日本生物学委員会・bone International organization</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="panel">
+        <div id="panel-admin">
+            <div class="panel-admin-box">
+                <div id="tootlbar_colors">
+                    <button class="color" style="background-color:#1abac8;" onclick="mytheme(0)"></button>
+                    <button class="color" style="background-color:#ff8a00;" onclick="mytheme(1)"> </button>
+                    <button class="color" style="background-color:#b4de50;" onclick="mytheme(2)"> </button>
+                    <button class="color" style="background-color:#e54e53;" onclick="mytheme(3)"> </button>
+                    <button class="color" style="background-color:#1abc9c;" onclick="mytheme(4)"> </button>
+                    <button class="color" style="background-color:#159eee;" onclick="mytheme(5)"> </button>
+                </div>
+            </div>
+
+        </div>
+        <a class="open" href="#"><span><i class="fa fa-gear fa-spin"></i></span></a>
+    </div>
+
+
+</body>
+
+</html>

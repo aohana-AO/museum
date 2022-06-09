@@ -1,0 +1,150 @@
+
+
+
+{% extends 'app/base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block body %}
+
+
+<header>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href=" {% url 'index' %} "><img src=" {% static 'img/logo (13).png' %} "   alt="Skeleton Art Museumロゴ"></a>
+                    <a class="navbar-brand" >
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li ><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'EC' %}">予約・購入</a></li>
+                            <li><a href="{% url 'blog' %}">ご意見・感想</a></li>
+                            <li class="active"><a href="{% url 'toiawase' %}">お問い合わせ</a></li>
+                            {% if user.is_authenticated %}
+                            <li><a href="{% url 'profile' %}">マイページ</a></li>
+                            <li><a href="{% url 'account_logout' %}">ログアウト</a></li>
+                            {% else %}
+                            <li><a href="{% url 'account_signup' %}">サインイン</a></li>
+                            <li><a href="{% url 'account_login' %}">ログイン</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+        </nav>
+    </header>
+
+<section id="top_banner">
+    
+    <div class="page_info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-6">
+                    <h4>Contact</h4>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-6" style="text-align:right;">Home<span class="sep"> / </span><span class="current">Contact</span></div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</section>
+<section id="contact-page">
+    <div class="container">
+        <div class="section-heading text-center">
+            <h2>お問い合わせ/ <span>Drop your Message</span></h2>
+            <p class="subheading">こちらの入力フォームからお問い合わせができます。</p>
+        </div>
+        <div class="row contact-wrap">
+            <div class="status alert alert-success" style="display: none"></div>
+            <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
+                <div class="col-sm-5 col-sm-offset-1">
+                    <div class="form-group">
+                        <label>Name *</label>
+                        <input type="text" name="name" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" name="email" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="number" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <label>Subject *</label>
+                        <input type="text" name="subject" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea name="message" id="message" required="required" class="form-control" rows="8"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" name="submit" class="btn btn-default submit-button">Submit Message <i class="fa fa-caret-right"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<section id="contact">
+    <div class="overlay">
+        <div class="gmap-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="gmap">
+                           
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18747.04038237419!2d132.77138925649734!3d33.83708305186434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354fe5ec663472d7%3A0x33fdb547e0245ab2!2z5Z2C44Gu5LiK44Gu6Zuy44Of44Ol44O844K444Ki44Og!5e0!3m2!1sja!2sjp!4v1643848374117!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <div class="col-sm-7 map-content">
+                        <ul class="row">
+                            <li class="col-sm-6">
+                                <address>
+                                <h5>骨格美術館</h5>
+                                <p>住所<br>
+                                愛媛県松山市
+                                三番町
+                                １２-５<br>
+                                </p>
+                                    <p>Phone:0120-87-115<br>
+                                Email about.gmail.com</p>
+                            </address>
+
+                            </li>
+                            <li class="col-sm-6">
+                                <address>
+                                <h5>bone International organization</h5>
+                                <p>Aspire Software Solutions <br>
+                                202, Parishram Complex,<br>
+                                Mithakhali Six Roads,<br>
+                                Navrangpura, Ahmedabad,<br>
+                                Gujarat, India. </p>
+                                <p>Phone:+91 848 594 5080 <br>
+                                Email Address:sales@aspiresoftware.in</p>
+                            </address>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
