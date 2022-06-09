@@ -28,6 +28,7 @@ djangoでのwebアプリ作成練習・フロントエンド授業課題のた�
 https://user-images.githubusercontent.com/84378453/172765241-8b3e2bd2-9fda-450f-b810-15cf82d68b49.mp4
 
 - 美術館サイト内でチケットやグッズを購入できる。
+- 
 https://user-images.githubusercontent.com/84378453/172765494-d779e220-8463-4fae-9e3d-0b35f539c7ec.mp4
 
 ## Reference
