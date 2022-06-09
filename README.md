@@ -31,4 +31,6 @@ https://user-images.githubusercontent.com/84378453/172765241-8b3e2bd2-9fda-450f-
 
 https://user-images.githubusercontent.com/84378453/172765494-d779e220-8463-4fae-9e3d-0b35f539c7ec.mp4
 
+- 一応サイトロゴも自分で作成した。
+
 ## Reference
